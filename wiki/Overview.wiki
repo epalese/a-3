@@ -1,7 +1,7 @@
 #labels Phase-Requirements
 #A-3 Overview
 
-= Introduction =
+<h2> Introduction </h2>
 
 A-3 is a Java framework that aims to help and simplify the implementation of self-management capabilities in highly dynamic and fully decentralised distributed applications.
 
