@@ -5,7 +5,7 @@
 
 A-3 is a Java framework that aims to help and simplify the implementation of self-management capabilities in highly dynamic and fully decentralised distributed applications.
 
-= Problem Specification =
+<h2> Problem Specification </h2>
 <p>
 Typically in enterprise software systems a single well-defined entity or a set of collaborating entities are in charge of providing self-management properties. This is possible because enterprise environments are often characterized by a well known and controlled communicative and informational structure.
 Instead scenarios with an high degree of dynamism and decentralisation make impossible a centralised approach to system management due to the lack of stable and well-defined entities to rely on. 
