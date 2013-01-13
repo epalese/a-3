@@ -82,7 +82,10 @@ The Component Manager orchestrate all the underlying layers and expose the inter
 
 == Links ==
 <p>
-REDS: zeus.ws.dei.polimi.it/reds/
+REDS: http://zeus.ws.dei.polimi.it/reds
+<br/>
 JGroups: http://www.jgroups.org
+<br/>
 Appia: http://appia.di.fc.ul.pt
+<br/>
 </p>
