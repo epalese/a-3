@@ -45,5 +45,6 @@ A key aspect of our model is that the actual number of groups being used evolves
 
 <p>
 Our model is implemented through a layered architecture (see Figure 2).
-<img src="https://a-3.googlecode.com/svn/wiki/images/LayeredArchitecture.png">
+<img src="https://a-3.googlecode.com/svn/wiki/images/LayeredArchitecture.png" style="align: center"/>
+Figure 2
 </p>
