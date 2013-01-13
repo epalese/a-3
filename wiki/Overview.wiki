@@ -36,8 +36,13 @@ In such a scenario we can't rely on a centralised supervision component and have
 To get rid of these problems A-3 model introduces the notion of group.
 A group represents a logical set of components that are brought together so that they can be supervised by a group leader.
 A group leader is a regular component that has been dynamically elected to leader status. IT is responsible for gathering information about the components in its group, and for sharing its knowledge with other group leaders thanks to an exclusive group called the leader-group. See the figure:
-https://a-3.googlecode.com/svn/wiki/images/GroupHierarchy.png 
+</p>
 
+<p>
+https://a-3.googlecode.com/svn/wiki/images/GroupHierarchy.png 
+</p>
+
+<p>
 Groups use events to maintain a clear vision of the components they contain. This allows us to react to the addition or removal of a component, or the failure of a group leader. Moreover, when a leader fail we can promote a supervised component making it the new leader.
 Scalability issues are addressed by the construction of a group hierarchy (as shown in Figure 1). The hierarchy to allow group leaders to exchange information about their respective groups enabling them to build a global view of the without the need to interact with every single component in the system.
 </p>
