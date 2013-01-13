@@ -71,7 +71,7 @@ The group management layer is used to manage the number of groups and their conf
 	* Appia 
 </p>
 <p>
-Despite the specific group communication used, the layer provides means to create and delete groups, as well as ways for components to join and leave a group. In practice it’s main goal is to provide reliable communication between the components of a single group. Hence, it provides both member-to-member and member-to-group communication. However, it also solves membership issues by providing an event-based membership management system. In fact, components can be notified when there are other components that are entering or leaving a group. It also provides means to detect and react to the crash of group members (leader included).
+Despite the specific group communication framework used, the layer provides means to create and delete groups, as well as ways for components to join and leave a group. In practice it’s main goal is to provide reliable communication between the components of a single group. Hence, it provides both member-to-member and member-to-group communication. However, it also solves membership issues by providing an event-based membership management system. In fact, components can be notified when there are other components that are entering or leaving a group. It also provides means to detect and react to the crash of group members (leader included).
 </p>
 
 
