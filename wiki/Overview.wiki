@@ -55,3 +55,34 @@ A key aspect of our model is that the actual number of groups being used evolves
 Our model is implemented through a layered architecture as shown in the following figure:
 https://a-3.googlecode.com/svn/wiki/images/LayeredArchitecture.png
 </p>
+
+=== Discovery Service ===
+<p>
+The Discovery Service is used by group members (leaders and supervised components) to obtain information about the current state of the system. It is implemented on REDS (REconfigurable Dispatching System) publish/subscribe subsystem and ideally can be used to build a totally decentralised discovery service layered on a peer-to-peer network structure.
+For the purpose of hierarchical group-based supervision structure the discovery service is used 
+* by new components to search for groups they want to belong to
+* by leaders to gather information about already existing groups (for instance to migrate member from one group to another in order to balance group size).
+</p>
+
+=== Group Management ===
+<p>
+The group management layer is used to manage the number of groups and their configurations at runtime, and it has been implemented using two different Group Communication Framework:
+* JGroups
+* Appia 
+</p>
+<p>
+Despite the specific group communication used, the layer provides means to create and delete groups, as well as ways for components to join and leave a group. In practice it’s main goal is to provide reliable communication between the components of a single group. Hence, it provides both member-to-member and member-to-group communication. However, it also solves membership issues by providing an event-based membership management system. In fact, components can be notified when there are other components that are entering or leaving a group. It also provides means to detect and react to the crash of group members (leader included).
+</p>
+
+
+=== Component Manager ===
+<p>
+The Component Manager orchestrate all the underlying layers and expose the interfaces to control and manage the component. In the direction of a runtime behavioural adaptation the Component Manager provide the means to inject code into the component at runtime. For instance this facility allow group leader to inject code in the supervised components in response to environmental changes (i.e. network congestion or resources availability).
+</p> 
+
+== Links ==
+<p>
+REDS: zeus.ws.dei.polimi.it/reds/
+JGroups: http://www.jgroups.org
+Appia: http://appia.di.fc.ul.pt
+</p>
