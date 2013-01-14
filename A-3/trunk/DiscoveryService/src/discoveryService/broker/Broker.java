@@ -1,3 +1,22 @@
+/***
+ * * A-3 DiscoveryService
+ * * <mailto: leleplx@gmail.com>
+ * *
+ * * This library is free software; you can redistribute it and/or modify it
+ * * under the terms of the GNU Lesser General Public License as published by
+ * * the Free Software Foundation; either version 2.1 of the License, or (at
+ * * your option) any later version.
+ * *
+ * * This library is distributed in the hope that it will be useful, but
+ * * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
+ * * General Public License for more details.
+ * *
+ * * You should have received a copy of the GNU Lesser General Public License
+ * * along with this library; if not, write to the Free Software Foundation,
+ * * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 package discoveryService.broker;
 
 import polimi.reds.broker.overlay.Overlay;
@@ -7,7 +26,8 @@ import polimi.reds.broker.overlay.Overlay;
  * 
  * Discovery Service in terms of publish/subscribe paradigms has two different network components:
  * - broker: is in charge of storing subscriptions 
- * - dispatcher: is the "front-end" interface of the service and allow the components to  publish messages or to express interest in certain type of messages through a subscription
+ * - dispatcher: is the "front-end" interface of the service and allow the components to  publish messages or to express 
+ *   interest in certain type of messages through a subscription;
  * - broker: a dispatcher create a connection to the broker and rely on it to publish messages or to register subscription.
  * 	 The brokers are connected together in an overlay network (often using a tree structure) and are in charge of routing messages of publisher to the interested subscribers.
  * 
@@ -27,7 +47,8 @@ public interface Broker {
 	
 	/**
 	 * Connect the broker to another known broker addressed by url.
-	 * If the connection is successful the two broker will be part of the same overlay network and will start to exchange information on overlay network topology taking part in the routing and delivery activities. 
+	 * If the connection is successful the two broker will be part of the same overlay network and will start to 
+	 * exchange information on overlay network topology taking part in the routing and delivery activities. 
 	 * 
 	 * @param url The URL of the broker to connect with (e.g. red-tcp:127.0.0.2:8100)
 	 */
