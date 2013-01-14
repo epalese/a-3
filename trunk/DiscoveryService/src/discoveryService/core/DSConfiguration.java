@@ -6,10 +6,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * DSConfiguration encapsulates all the parameters required to set up and start 
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class DSConfiguration {
 	public static final String TCP = "tcp";
 	public static final String UDP = "udp";
-//	public static final String TCPLOCATION = "tcpl";
 
 	// nome del nodo
 	private String nodeName;

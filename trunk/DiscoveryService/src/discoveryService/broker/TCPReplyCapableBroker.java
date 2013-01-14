@@ -29,8 +29,26 @@ import polimi.reds.broker.routing.SubscriptionForwardingRoutingStrategy;
 import polimi.reds.broker.routing.SubscriptionTable;
 import polimi.util.Locator;
 
-
+/**
+ * Provide an implementation of {@link Broker} based on TCP connection-oriented protocol.
+ * The broker is also able to manage replies.
+ * For instance:
+ * - node A connect to broker 1 and register a subscription to message of type A
+ * - node B connect to broker N and publish a message of type A
+ * - broker N dispatch the message to overlay network until it reaches broker 1
+ * - broker 1 matches the message with the subscription of node A
+ * - broker 1 deliver the message to node A
+ * - node A send a reply to the message
+ * - the message traverse the overlay network back until node B
+ *  
+ * @author leleplx@gmail.com (emanuele)
+ * 
+ *
+ */
 public class TCPReplyCapableBroker implements Broker {
+	/**
+	 * Time in milliseconds during which the Locator waits for detecting other brokers.
+	 */
 	public final static int LOCATOR_SEARCH_TIME = 1000;
 	private static Logger logger = Logger.getLogger(TCPReplyCapableBroker.class);
 	
@@ -47,13 +65,13 @@ public class TCPReplyCapableBroker implements Broker {
 	private String myURL;
 	
 	/**
-	 * 
-	 * @param url url del broker (senza la port) es: reds-tcp:127.0.0.1
-	 * @param brokerPort porta del broker es: 1911
+	 * Instantiates a broker relying on TCP protocol stack.
+	 * This broker is to be used when connection-oriented behaviour is required.
+	 *  
+	 * @param url broker URL (must be specified without port number e.g.: 127.0.0.1)
+	 * @param brokerPort broker port number e.g.: 1911
 	 */
-	public TCPReplyCapableBroker(String address,int brokerPort) {
-		
-		
+	public TCPReplyCapableBroker(String address, int brokerPort) {
 		transport = new TCPTransport(brokerPort);
 		topManager = new SimpleTopologyManager();
 //		topManager = new LSTreeTopologyManager();
@@ -77,7 +95,6 @@ public class TCPReplyCapableBroker implements Broker {
 		reconf.setRouter(router);
 		replyManager.setReplyTable(replyTable);
 		myURL = "reds-tcp:" + address + ":" + brokerPort;
-		
 		
 		try {
 			locator = new Locator(myURL);
@@ -120,10 +137,12 @@ public class TCPReplyCapableBroker implements Broker {
 					overlay.addNeighbor(url);
 					count++;
 				} catch(AlreadyAddedNeighborException e) { 
-					logger.info("broker already added!"); } 
+					logger.info("Broker already added"); } 
 				catch (ConnectException e) {
+					logger.error("Connect exception");
 					e.printStackTrace();
 				} catch (MalformedURLException e) {
+					logger.error("URL Malformed");
 					e.printStackTrace();
 				}
 				// Se num = 0 allora significa che verranno aggiunti tutti i neighbors trovati
