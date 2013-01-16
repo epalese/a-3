@@ -413,8 +413,6 @@ public class DSCore {
 		}
 	}
 	
-	// Questa classe si occupa di gestire i msg ricevuti;
-	// Nel caso tali msg servano al core li processa; in caso contrario li inoltra al listener registrato (se presente)
 	/**
 	 * Implements the {@link MsgHandler} providing the required methods.
 	 * The CoreMsgHandler is in charge of managing messages used by Discovery Service
