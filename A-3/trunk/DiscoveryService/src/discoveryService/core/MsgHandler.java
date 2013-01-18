@@ -19,6 +19,19 @@
 
 package discoveryService.core;
 
+/**
+ * Core class used by DSCore to process messages received from the neighbor nodes in
+ * the overlay network of the service. 
+ * DSCore instantiates a new thread that executes the <code>run()</code> methods. When a message
+ * arrives at the node the method <code>process(DSMessage msg)</code> should be called
+ * to process the message.
+ * 
+ * You never are supposed to extend this class for a normal use of Discovery Service. 
+ * DSCore internally provides an implementation of it.
+ *  
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public abstract class MsgHandler extends Thread {
 	abstract public void process(DSMessage msg);
 	abstract public void run();

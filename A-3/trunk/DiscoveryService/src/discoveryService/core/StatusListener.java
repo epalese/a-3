@@ -21,6 +21,22 @@ package discoveryService.core;
 
 import discoveryService.core.status.Status;
 
+/**
+ * This interface define a method called when the node receive a status notification
+ * from one of the node with whom is in an engagement relationship.
+ * The listener should be registered trough <code>DSCore.registerStatusListener</code>
+ * 
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public interface StatusListener {
+	/**
+	 * After registering the listener, this method will be called when
+	 * the instance of {@link DSCore} receive a status notification.
+	 * 
+	 * @param msg Instance of <code>Status</code> riceved by <code>DSCore</code>
+	 * and passed to the method.
+	 *  
+	 */
 	public void notify(Status status);
 }

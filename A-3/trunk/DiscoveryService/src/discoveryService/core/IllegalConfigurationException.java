@@ -19,6 +19,12 @@
 
 package discoveryService.core;
 
+/**
+ * Thrown when {@link DSCore} finds an illegal configuration parameter.
+ * 
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class IllegalConfigurationException extends IllegalArgumentException {
 	private static final long serialVersionUID = -8283189470624318525L;
 	private String error;

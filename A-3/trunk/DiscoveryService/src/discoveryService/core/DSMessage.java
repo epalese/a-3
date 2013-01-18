@@ -21,10 +21,24 @@ package discoveryService.core;
 
 import polimi.reds.Message;
 
+/**
+ * The base class for messages exchanged between different nodes of the Discovery
+ * Service. This class extends <code>polimi.reds.Message</code> provided by
+ * REDS middleware with the attribute <code>nodeName</code> used to identify
+ * a node in the service.
+ * 
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class DSMessage extends Message {
 	private static final long serialVersionUID = -7684705933007103294L;
 	protected String nodeName;
 	
+	/**
+	 * Set a string identifier used to identify the node in the service.
+	 * 
+	 * @param nodeName The name of the node.
+	 */
 	public void setNodeName(String nodeName) {
 		this.nodeName = nodeName;
 	}

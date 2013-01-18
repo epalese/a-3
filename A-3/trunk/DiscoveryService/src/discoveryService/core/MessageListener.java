@@ -19,6 +19,22 @@
 
 package discoveryService.core;
 
+/**
+ * This interface allow users to define a method in reaction to the reception of a 
+ * {@link DSMessage}
+ * The listener should be registered trough <code>DSCore.registerMessageListener</code>
+ *  
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public interface MessageListener {
+	/**
+	 * After registering the listener, this method will be called when
+	 * the instance of {@link DSCore} receive a message.
+	 * 
+	 * @param msg Instance of <code>DSMessage</code> riceved by <code>DSCore</code>
+	 * and passed to the method.
+	 *  
+	 */
 	public void notify(DSMessage msg);
 }

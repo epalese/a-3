@@ -29,8 +29,28 @@ import polimi.reds.TCPDispatchingService;
 import discoveryService.broker.Broker;
 import discoveryService.broker.TCPReplyCapableBroker;
 
+/**
+ * This class provides helper methods to create instances of the different
+ * components that can take part in a node of Discovery Service: Dispatching
+ * Service and Broker.
+ * 
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class DSFactory {
 	private static Logger logger = Logger.getLogger(DSFactory.class);
+	
+	/**
+	 * Create an instance of {@link DispatchingService} using the parameters 
+	 * passed through an instance of {@link DSConfiguration}.
+	 * 
+	 * @param conf An instance of {@link DSConfiguration} with the parameters used to
+	 * set up the broker.
+	 * 
+	 * @return The instance of {@link DSConfiguration} created.
+	 * 
+	 * TODO: implement UDP
+	 */
 	public static DispatchingService createDispatchingService(DSConfiguration conf) {
 		// TCP Dispatcher
 		if (conf.getProtocol().equals(DSConfiguration.TCP)) {
@@ -45,12 +65,16 @@ public class DSFactory {
 	}
 	
 	/**
-	 * Istanzia un broker REDS in base ai parametri di configurazione passati in un'istanza di DSConfiguration.
-	 * Dopo aver creato un'istanza del broker che soddisfi la configurazione richiesta, lo avvia e aggiunge o cerca i broker
-	 * vicini 
-	 * @param conf istanza di DSConfiguration che definisce alcuni parametri di configurazione del broker (ad es. protocollo
-	 * TCP o UDP)
-	 * @return un'istanza di broker REDS che rispetta i parametri passati come configurazione 
+	 * Create an instance of {@link Broker} using the parameters passed through
+	 * an instance of {@link DSConfiguration}.
+	 * After creating the broker, the constructor start the broker and search for neighbor nodes.
+	 * 
+	 * @param conf An instance of {@link DSConfiguration} with the parameters used to
+	 * set up the broker.
+	 * 
+	 * @return The instance of {@link Broker} created.
+	 * 
+	 * TODO: implement UDP.
 	 */
 	public static Broker createBroker(DSConfiguration conf) {
 		Broker broker; 
@@ -79,6 +103,9 @@ public class DSFactory {
 			}
 			return broker;
 		}
+		/*
+		 * TODO: implement UDP Dispatching Service
+		 */
 		
 		return null;
 	}

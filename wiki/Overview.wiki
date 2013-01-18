@@ -77,7 +77,7 @@ Despite the specific group communication framework used, the layer provides mean
 
 === Component Manager ===
 <p>
-The Component Manager orchestrate all the underlying layers and expose the interfaces to control and manage the component. In the direction of a runtime behavioural adaptation the Component Manager provide the means to inject code into the component at runtime. For instance this facility allow group leader to inject code in the supervised components in response to environmental changes (i.e. network congestion or resources availability).
+The Component Manager orchestrates all the underlying layers and exposes the interfaces to control and manage the component. In the direction of a runtime behavioural adaptation the Component Manager provides the means to inject code into the component at runtime. For instance this facility allow group leader to inject code in the supervised components in response to environmental changes (i.e. network congestion or resources availability).
 </p> 
 
 == Links ==

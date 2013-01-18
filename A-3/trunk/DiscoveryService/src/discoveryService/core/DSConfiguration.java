@@ -186,6 +186,12 @@ public class DSConfiguration {
 		return brokerNeighbors;
 	}
 	
+	/**
+	 * Set the maximum number of neighbors to connect with.
+	 * 
+	 * @param num Maximum number of neighbors. If 0 the node connects to all the
+	 * other nodes it finds in the network. 
+	 */
 	public void setMaxNumOfNeighbors(int num) {
 		maxNumOfNeighbors = num;
 	}
