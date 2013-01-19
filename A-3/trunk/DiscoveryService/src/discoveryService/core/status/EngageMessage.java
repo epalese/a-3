@@ -22,6 +22,27 @@ package discoveryService.core.status;
 import polimi.reds.Repliable;
 import discoveryService.core.DSMessage;
 
+/**
+ * This class implements the message used by a node in the service to engage
+ * another node. When the engagement is established the engaged node will send
+ * notification when its status changes. The status is a object which has as
+ * base class {@link Status}.
+ * 
+ * <code>EngageMessage</code> in its payload contains a {@link StatusFilter}.
+ * This filter expresses the matching criteria on the status of the node
+ * the sender wants to engage with. When the node receives the message
+ * it extracts the instance of <code>StatusFilter</code> and calls the method
+ * <code>StatusFilter.match(Message message)</code> passing as parameter its
+ * own {@link Status} instance (<code>Status</code> class extends @{link DSMessage}).
+ * 
+ * The sender of the <code>EngageMessage</code> is in charge of defining all the
+ * necessary checks to match the correct nodes. The method 
+ * <code>StatusFilter.match(Message message)</code> provides an implementation for
+ * a simple status matching.
+ * 
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class EngageMessage extends DSMessage implements Repliable {
 	private static final long serialVersionUID = 5360422068966862615L;
 	private StatusFilter filter;

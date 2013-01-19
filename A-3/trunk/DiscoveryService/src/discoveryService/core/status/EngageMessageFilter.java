@@ -22,6 +22,23 @@ package discoveryService.core.status;
 import polimi.reds.Filter;
 import polimi.reds.Message;
 
+/**
+ * Subscription filter used by a node to notify to Discovery Service that it 
+ * is available for engagement by other nodes. The filter contains the status
+ * of the node that perform the subscription. The node sends the filter to 
+ * the broker in the Discovery Service through subscription.
+ * 
+ * When the broker receive a message it calls the methods <code>matches(Message msg)</code>
+ * on the instance of <code>EngageMessageFilter</code>. So the implementation
+ * of the method is in charge of verifying that the message is an instance
+ * of {@link EngageMessage} and if so it extracts the {@link StatusFilter}
+ * instance to perform an invocation of the method 
+ * <code>StatusFilter.matches(Message msg). The argument passed to the method is
+ * the instance of {@link Status} registered with the <code>EngageMessageFilter</code>.
+ *  
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class EngageMessageFilter implements Filter {
 	private static final long serialVersionUID = -1845875821187009553L;
 	private Status status;

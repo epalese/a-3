@@ -280,8 +280,11 @@ public class DSCore {
 	/**
 	 * Send a search message with the template describing the information to be searched for.
 	 * 
-	 * @param template An instance of DSMessage containing structured in a way that expresses
-	 * the information to be searched for.
+	 * @param template An instance of <code>DSMessage</code> containing a search template. 
+	 * Usually the class of template is a subclass of <code>DSMessage</code> providing
+	 * the information that the receiving node needs to perform a match on its content.
+	 * See {@link EngageMessage} and @{link EngageMessageFilter} for a typical usage 
+	 * pattern.
 	 */
 	public void search(DSMessage template) {
 		template.setNodeName(nodeName);
@@ -289,7 +292,7 @@ public class DSCore {
 	}
 	
 	/**
-	 * Make a subscription to the kind of messages described through the filter passed as
+	 * Make a subscription to the kind of messages described by the filter passed as
 	 * parameter.
 	 * 
 	 * @param template Defines the matching criteria of the subscription.

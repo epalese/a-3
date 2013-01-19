@@ -21,6 +21,17 @@ package discoveryService.core.status;
 
 import discoveryService.core.DSMessage;
 
+/**
+ * Provide an abstraction for the internal status of the node.
+ * It provides three basic attributes for the status:
+ * - nodeName: a string identifying the name of the node
+ * - address: the IP address of the node
+ * - status: a reference to a generic object that can be used by the
+ *           user to store other relevant information.
+ *            
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class Status extends DSMessage {
 	private static final long serialVersionUID = 3675942301627310972L;
 	private String address;

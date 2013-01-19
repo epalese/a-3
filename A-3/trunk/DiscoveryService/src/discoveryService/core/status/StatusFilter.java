@@ -22,6 +22,24 @@ package discoveryService.core.status;
 import polimi.reds.Filter;
 import polimi.reds.Message;
 
+/**
+ * It defines the matching criteria on the status of a node used during 
+ * an engagement request.
+ * These criteria are specified by the node that wants to perform the engagement
+ * and are encapsulated in an instance of <code>StatusFilter</code> and
+ * inserted in the instance of <code>EngageMessage</code>. The instance of
+ * <code>EngageMessage</code> is then sent in the service node and delivered
+ * to the required node.
+ * 
+ * <code>StatusFilter</code> implements the method <code>matches(Message msg)</code> 
+ * that receive as argument an instance of Status and is called by the node 
+ * that receive the <code>EngageMessage</code> that will pass as argument its own
+ * <code>Status<code> instance. So the method <code>StatusFilter.mataches(Message msg)</code>
+ * perform its operations on the Status of the receiving node.
+ *  
+ * @author leleplx@gmail.com (emanuele)
+ *
+ */
 public class StatusFilter implements Filter {
 	private static final long serialVersionUID = -7392801870949341993L;
 	private Status status;
@@ -66,9 +84,11 @@ public class StatusFilter implements Filter {
 		else
 			addressCondition = statusMsg.getAddress().equals(status.getAddress());
 		
-		// Disabilitato perché per ora l'engage viene fatto solo su nodeName
-		// guardare DSCore.engage(String nodeName)
-		// Cmq rimane la possibilità di inserire nel messaggio di Status un qualsiasi oggetto (di tipo Matchable)
+		/**
+		 * TODO: at the moment the match is based only on nodeName.
+		 * Extend the matching criteria allowing complex way to compare
+		 * Status.
+		 */
 		/*if (status.getStatus() == null)
 			statusCondition = true;
 		else
