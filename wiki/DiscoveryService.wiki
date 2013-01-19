@@ -58,7 +58,17 @@ If the second step also has a positive result the message is then passed to the 
 
 == Configuration ==
 <p>
-In order to use Discovery Service it must be configured with the proper network parameters. As we will see later these parameters are managed through the class <code>discoveryService.core.DSConfiguration</code> which allows to set the parameters directly in the Java code or through a configuration file. The possible parameters are:
+In order to use Discovery Service it must be configured with the proper network parameters. As we will see later these parameters are managed through the class <i>discoveryService.core.DSConfiguration</i> which allows to set the parameters directly in the Java code or through a configuration file. The possible parameters are:
+ * nodeName: specifies the name of the node. Discovery Service requires that a node has a unique string identifier, commonly referred to as “node name”. A unique identifier can be easily generated through the UUID (Universal Unique IDentifier) algorithm implemented in java.util.UUID. 
+ 
+ value: a string identifier 
+ * protocol: specifies the transport protocol to be used by the discovery service. Value: [TCP|UDP]
+ * brokerPort: indicates the IP port of the broker which the dispatching service will connect to. Value: IP port number
+ * brokerAddress: indicates the IP address of the broker which the dispatching service will connect to. Value: IP address
+ * createBroker: specifies if a broker must be locally instantiated. In the case that this value is “true” than the previous address values, brokerPort and brokerAddress, will be used to set up the network parameters of the local broker. Value: [yes|no] default: yes
+ * brokerNeighbors: specifies a list of broker neighbors separated by a white space. Used in case of createBroker=yes. This is a mandatory field that could be used when in the system there are well know brokers. On the contrary, when no information about brokers in the system are availabe, Discovery Service allows to search for brokers (through multicast messages). Value: space-separated list of “IPAddress:port” 
+ * maxNumOfNeighbors: specifies the maximum numbers of neighbors that the local broker will try to connect to. Used in case of createBroker=yes. (Often a value greater than 1 creates problem in the topology construction process). Value: maximum number of broker neighbors; default: 1
+
 
 </p>
 
