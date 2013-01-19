@@ -37,3 +37,22 @@ https://a-3.googlecode.com/svn/wiki/images/DSOverlay2.png
 <br/>
 Figure 2
 </p>
+
+
+=== Messages ===
+In REDS (and consequently in Discovery Service) an event takes the form of an object istance and is called “message”. Discovery Service defines the class DSMessage, that is the root class to be used for any information that has to be delivered in the service. Users can extend DSMessage with the attributes containing the information required by the specific needs. We can see an application of this concept in DiscoveryManager.
+
+=== Publishing and Searching ===
+<p>
+So far we have seen the internals of REDS-based Discovery Service, but how are implemented the actual mechanisms of publishing and searching? In Discovery Service the act of publish something becomes, in publish/subscribe terms, a subscription to particular “search messages”. Searching then is implemented through the definition and publication of the search messages just indicated. Discovery Service requires two different kind of matching filter:
+ * publish filter: used in the publication of information; this filter is defined by the publisher and is used by the broker to select the correct search messages (that is if the message is an istance of the class defined to be the search message for the published information); usually this filter should contain the information to be published in order to allow the broker to perform matching operation on the published content when a correct search message arrives;
+ * search filter: this filter is wrapped in a search message and contains the matching criteria used to find the desired information.
+</p>
+<p>
+In front of a search message the broker opearations can be splitted in two “matching phases”:
+ - when a search message arrives, the borker invokes the method matches of the publishing filter passing the message as argument; the publishing filter can now determine if the type of search messages is addressed to the published information;
+ - if the previous matching has a positive result, the publishing filter takes the filter contained in the search messages and invoke on it the method matches, passing the published information (remember that the information should be contained in the publishing filter) as argument.
+
+
+
+
