@@ -1,0 +1,10 @@
+#labels Phase-Requirements
+= Discovery Service =
+
+== Introduction ==
+The intended use of a discovery service in A-3 framework is to enable services to search for the components needed to perform their tasks. So in A-3 a service is supposed to put all the information regarding its identity and provided functionalities in a service descriptor and then makes it available for search through the discovery service.
+The main features of Discovery Service are its extreme configurability in the type of manageable information and in the search mechanisms. Moreover Discovery Service can be configured to address distributed settings ranging from centralized scenarios, in which a node is in charge of mantaining the service, to fully decentralized scenarios in which all nodes in the system take part in service operations.
+
+<div style="align: center">
+ https://a-3.googlecode.com/svn/wiki/images/DiscoveryServiceArch.png
+</div>
