@@ -50,9 +50,15 @@ So far we have seen the internals of REDS-based Discovery Service, but how are i
 </p>
 <p>
 In front of a search message the broker opearations can be splitted in two “matching phases”:
- - when a search message arrives, the borker invokes the method matches of the publishing filter passing the message as argument; the publishing filter can now determine if the type of search messages is addressed to the published information;
- - if the previous matching has a positive result, the publishing filter takes the filter contained in the search messages and invoke on it the method matches, passing the published information (remember that the information should be contained in the publishing filter) as argument.
+ # when a search message arrives, the borker invokes the method matches of the publishing filter passing the message as argument; the publishing filter can now determine if the type of search messages is addressed to the published information;
+ # if the previous matching has a positive result, the publishing filter takes the filter contained in the search messages and invoke on it the method matches, passing the published information (remember that the information should be contained in the publishing filter) as argument.
+ 
+If the second step also has a positive result the message is then passed to the client. Hereafter the control on the search message is totally in the hands of the client. Discovery Service delegate the management of arrived search message to application level but, in order to implement a correct search mechanism, the client is supposed to reply to the searcher with the required information. For this purpose an extension to publish/subscribe paradigm provided by REDS comes in aid allowing a client to send replies to messages it receives.
+</p>
 
+== Configuration ==
+<p>
+In order to use Discovery Service it must be configured with the proper network parameters. As we will see later these parameters are managed through the class <code>discoveryService.core.DSConfiguration</code> which allows to set the parameters directly in the Java code or through a configuration file. The possible parameters are:
 
-
+</p>
 

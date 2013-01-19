@@ -39,7 +39,7 @@ A group leader is a regular component that has been dynamically elected to leade
 </p>
 
 <p>
-https://a-3.googlecode.com/svn/wiki/images/GroupHierarchy.png 
+https://a-3.googlecode.com/svn/wiki/images/GroupHierarchy.png
 </p>
 
 <p>
