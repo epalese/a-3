@@ -7,5 +7,6 @@ The main features of Discovery Service are its extreme configurability in the ty
 
 <p>
 https://a-3.googlecode.com/svn/wiki/images/DiscoveryServiceArch.png
+<br/>
 Figure 1
 </p>
